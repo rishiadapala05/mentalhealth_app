@@ -1,0 +1,154 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container mt-5" data-aos="fade-up">
+    <h2 class="text-center mb-5" style="font-weight:700; font-size:2rem;">🎵 MoodCraft Music Zone 🎵</h2>
+
+    <div class="row justify-content-center g-4">
+        <!-- First Music Card -->
+        <div class="col-md-6 col-lg-4">
+            <div class="card shadow-sm music-card" onclick="playSong('music/song1.mp3', 'Mindfulness Meditation')">
+                <div class="album-art">
+                    <img src="{{ url_for('static', filename='images/album1.png') }}" class="img-fluid rounded" alt="Mindfulness Meditation">
+                    <div class="play-overlay">
+                        <i class="bi bi-play-circle-fill"></i>
+                    </div>
+                </div>
+                <div class="card-body text-center">
+                    <h5 class="card-title">🧘‍♂️ Mindfulness Meditation</h5>
+                </div>
+            </div>
+        </div>
+
+        <!-- Second Music Card -->
+        <div class="col-md-6 col-lg-4">
+            <div class="card shadow-sm music-card" onclick="playSong('music/song2.mp3', 'Relaxing Instrumental')">
+                <div class="album-art">
+                    <img src="{{ url_for('static', filename='images/album2.png') }}" class="img-fluid rounded" alt="Relaxing Instrumental">
+                    <div class="play-overlay">
+                        <i class="bi bi-play-circle-fill"></i>
+                    </div>
+                </div>
+                <div class="card-body text-center">
+                    <h5 class="card-title">🎶 Relaxing Instrumental</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Compact Modern Player -->
+    <div class="modern-player text-center mt-5" id="playerContainer" style="display:none;">
+        <div id="currentTrack" class="current-track mb-2">🎵 Now Playing</div>
+        <audio id="audioPlayer" controls class="audio-bar"></audio>
+        <div class="volume-control">
+            <i class="bi bi-volume-up-fill"></i>
+            <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="0.5">
+        </div>
+    </div>
+
+    <!-- Mini Popup -->
+    <div id="songNotification" class="alert alert-success" style="display:none; position:fixed; top:20px; right:20px; z-index:9999; padding:8px 15px; font-size:0.9rem;">
+        🎶 Now Playing: <span id="notificationTrack"></span>
+    </div>
+</div>
+
+<!-- Custom Styles -->
+<style>
+.music-card {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.music-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+.album-art {
+    position: relative;
+}
+.album-art img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+.play-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3rem;
+    color: white;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+.music-card:hover .play-overlay {
+    opacity: 1;
+}
+
+.modern-player {
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+    border-radius: 20px;
+    padding: 15px;
+    width: 70%;
+    max-width: 500px;
+    margin: auto;
+    box-shadow: 0 0 20px rgba(0, 242, 254, 0.6);
+    backdrop-filter: blur(8px);
+}
+.current-track {
+    font-weight: 600;
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 8px;
+}
+.audio-bar {
+    width: 100%;
+}
+.volume-control {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+#volumeSlider {
+    width: 120px;
+}
+</style>
+
+<!-- Music Script -->
+<script>
+function playSong(songPath, songName) {
+    const player = document.getElementById('audioPlayer');
+    const container = document.getElementById('playerContainer');
+    const track = document.getElementById('currentTrack');
+
+    player.src = "{{ url_for('static', filename='') }}" + songPath;
+    track.innerText = "🎵 Now Playing: " + songName;
+
+    container.style.display = 'block';
+    player.play();
+
+    // Mini Popup
+    const notification = document.getElementById('songNotification');
+    const notificationTrack = document.getElementById('notificationTrack');
+    notificationTrack.innerText = songName;
+    notification.style.display = 'block';
+    setTimeout(() => {
+        notification.style.display = 'none';
+    }, 2500);
+}
+
+// Volume Control
+const audioPlayer = document.getElementById('audioPlayer');
+const volumeSlider = document.getElementById('volumeSlider');
+volumeSlider.addEventListener('input', function() {
+    audioPlayer.volume = this.value;
+});
+</script>
+
+<!-- Bootstrap Icons -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+{% endblock %}

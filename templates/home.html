@@ -1,0 +1,300 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
+<!-- Particles.js Library -->
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+<!-- Preloader -->
+<div id="preloader">
+    <div class="loader-text">Loading MoodCraft...</div>
+</div>
+
+<!-- Beautiful Styling -->
+<style>
+/* Full background canvas for particles */
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    top: 0;
+    left: 0;
+}
+
+.hero {
+    background: linear-gradient(to right, #74ebd5, #acb6e5);
+    color: white;
+    padding: 100px 20px;
+    text-align: center;
+    border-radius: 20px;
+    margin-bottom: 50px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+/* Feature Cards */
+.feature-card {
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.4s, box-shadow 0.4s;
+    cursor: pointer;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+    background: #f9f9f9;
+}
+
+.feature-icon {
+    font-size: 50px;
+    margin-bottom: 15px;
+    color: #4CAF50;
+}
+
+#motivational-quotes {
+    margin: 50px auto;
+    text-align: center;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #000000;
+    min-height: 80px; /* always reserve height */
+    width: 80%;
+    animation: fadeBlink 5s infinite alternate;
+    transition: all 0.8s ease;
+}
+
+@keyframes fadeBlink {
+    from { opacity: 0.6; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* Extra Smoothness */
+.container {
+    font-family: 'Poppins', sans-serif;
+}
+</style>
+
+<!-- Particles Background -->
+<div id="particles-js"></div>
+
+<!-- Hero Section -->
+<section class="hero" data-aos="fade-down">
+    <a href="/about">
+        <img src="{{ url_for('static', filename='images/company_logo.png') }}" alt="MoodCraft Logo" style="height: 100px; margin-bottom: 20px; cursor: pointer;">
+    </a>
+    <h1 id="animatedTitle" class="animated-text">
+        Welcome to 
+        <span id="moodcraftText"></span>
+    </h1>
+    <p>Your Mental Health & Mindfulness Companion 🌿</p>
+    <a href="#features" id="exploreBtn" class="btn btn-light mt-3">Explore Features ↓</a>
+</section>
+
+<!-- 📝 Motivational Quotes (now placed correctly) -->
+<div id="motivational-quotes" data-aos="fade-up" data-aos-delay="800">
+    🌟 "Your mind is a powerful thing. When you fill it with positive thoughts, your life will start to change." 🌟
+</div>
+
+
+<!-- Welcome Notification -->
+<div id="welcomeNotification">
+    👋 Welcome back to MoodCraft! 🌿
+</div>
+
+<!-- Features Section -->
+<section id="features" class="container">
+<div class="row text-center">
+    <div class="col-md-4 mb-5" data-aos="zoom-in" data-aos-delay="200">
+        <div class="card feature-card p-4">
+            <div class="card-body">
+                <div class="feature-icon">💬</div>
+                <h3>Chat with Bot</h3>
+                <p>Talk to our AI-based emotional support chatbot for instant relief and counseling!</p>
+                <a href="/chatbot" class="btn btn-success mt-3">Start Chat</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-5" data-aos="zoom-in" data-aos-delay="400">
+        <div class="card feature-card p-4">
+            <div class="card-body">
+                <div class="feature-icon">🧠</div>
+                <h3>IQ Test</h3>
+                <p>Challenge yourself with our professional IQ Test and know your mental strength!</p>
+                <a href="/iq_test" class="btn btn-success mt-3">Take Test</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-5" data-aos="zoom-in" data-aos-delay="600">
+        <div class="card feature-card p-4">
+            <div class="card-body">
+                <div class="feature-icon">🎵</div>
+                <h3>Mindfulness</h3>
+                <p>Relax your soul with our mindfulness music sessions specially crafted for you.</p>
+                <a href="/mindfulness" class="btn btn-success mt-3">Relax Now</a>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+
+<!-- Soft Background Sound -->
+<audio id="backgroundSound" autoplay hidden>
+  <source src="{{ url_for('static', filename='music/soft_background.mp3') }}" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+<!-- Animation Scripts -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init();
+</script>
+
+<!-- Particles.js Config -->
+<script>
+particlesJS("particles-js", {
+    "particles": {
+        "number": { "value": 80 },
+        "color": { "value": "#4CAF50" },
+        "shape": { "type": "circle" },
+        "opacity": { "value": 0.3 },
+        "size": { "value": 3 },
+        "line_linked": {
+            "enable": true,
+            "distance": 150,
+            "color": "#4CAF50",
+            "opacity": 0.2,
+            "width": 1
+        },
+        "move": { "enable": true, "speed": 2 }
+    },
+    "interactivity": {
+        "events": {
+            "onhover": { "enable": true, "mode": "grab" },
+            "onclick": { "enable": true, "mode": "push" }
+        },
+        "modes": {
+            "grab": { "distance": 140, "line_linked": { "opacity": 0.5 } },
+            "push": { "particles_nb": 4 }
+        }
+    }
+});
+</script>
+
+<!-- Rotating Quotes Script -->
+<script>
+const quotes = [
+    "🌟 'Your mind is a powerful thing. When you fill it with positive thoughts, your life will start to change.' 🌟",
+    "🌸 'Breathe. It's just a bad day, not a bad life.' 🌸",
+    "🚀 'Believe you can and you're halfway there.' 🚀",
+    "🌞 'Every day may not be good... but there’s something good in every day.' 🌞",
+    "💡 'Start where you are. Use what you have. Do what you can.' 💡",
+    "🎯 'Small steps every day lead to big changes.' 🎯",
+    "🌱 'Healing doesn’t mean the damage never existed. It means the damage no longer controls your life.' 🌱",
+    "🔥 'You are stronger than you think.' 🔥",
+    "🌊 'Difficult roads often lead to beautiful destinations.' 🌊",
+    "💖 'Self-care is how you take your power back.' 💖"
+];
+
+let index = 0;
+setInterval(() => {
+    document.getElementById('motivational-quotes').innerHTML = quotes[index];
+    index = (index + 1) % quotes.length;
+}, 5000); // Change every 5 seconds
+</script>
+
+<!-- MoodCraft Title Animation Script with Glow -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const moodcraft = "MoodCraft";
+    const container = document.getElementById('moodcraftText');
+
+    let delay = 0;
+    for (let char of moodcraft) {
+        const span = document.createElement('span');
+        span.textContent = char;
+        span.style.display = 'inline-block';
+        span.style.transform = 'translateY(-50px)';
+        span.style.opacity = '0';
+        span.style.transition = `all 0.5s ease ${delay}s`;
+        container.appendChild(span);
+        delay += 0.1; // Delay between letters
+    }
+
+    setTimeout(() => {
+        const spans = container.querySelectorAll('span');
+        spans.forEach(span => {
+            span.style.transform = 'translateY(0)';
+            span.style.opacity = '1';
+        });
+
+        // After animation complete, add glow effect
+        setTimeout(() => {
+            container.classList.add('glow');
+            spans.forEach(span => span.classList.add('glow'));
+        }, 1000); // wait a bit after appearing
+    }, 100);
+});
+</script>
+
+<!-- Smooth Scroll on Explore Button Click -->
+<script>
+    document.getElementById('exploreBtn').addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector('#features').scrollIntoView({ behavior: 'smooth' });
+    });
+    </script>
+    
+ <!-- Hide Preloader When Page Loads -->
+<script>
+    window.addEventListener('load', function() {
+        const preloader = document.getElementById('preloader');
+        preloader.style.opacity = '0';
+        setTimeout(() => {
+            preloader.style.display = 'none';
+        }, 500); // after fade out
+    });
+    </script>
+
+ <!-- Show Welcome Notification After Page Load -->
+<script>
+    window.addEventListener('load', function() {
+        setTimeout(() => {
+            const notification = document.getElementById('welcomeNotification');
+            notification.style.display = 'block';
+            notification.style.opacity = '1';
+            notification.style.transform = 'translateY(0)';
+            
+            // Hide after 5 seconds
+            setTimeout(() => {
+                notification.style.opacity = '0';
+                notification.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    notification.style.display = 'none';
+                }, 600);
+            }, 5000);
+        }, 2500); // Show after 2.5 seconds
+    });
+    </script>
+          
+          
+{% endblock %}

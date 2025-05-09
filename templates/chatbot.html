@@ -1,0 +1,314 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container py-5" id="chat-container">
+    <h2 class="text-center mb-4" data-aos="fade-down">🤖 MoodCraft Mental Health Support Agent</h2>
+
+    <!-- Chat Window -->
+    <div id="chatWindow" class="card shadow-sm p-4 mb-4" style="height: 450px; overflow-y: auto; background: linear-gradient(to bottom right, #e0f7fa, #f0f4f8); border-radius: 20px;">
+        <!-- Messages will be appended here dynamically -->
+        {% if chat_history %}
+            {% for msg in chat_history %}
+                {% if msg.role == 'user' %}
+                <div class="message user">
+                    <div class="d-flex justify-content-end align-items-start">
+                        <div class="bubble user-bubble"><strong>You:</strong> {{ msg.content }}</div>
+                        <span class="chat-icon ms-2">👤</span>
+                    </div>
+                </div>
+                {% else %}
+                <div class="message bot">
+                    <div class="d-flex align-items-start">
+                        <span class="chat-icon me-2">🤖</span>
+                        <div class="bubble bot-bubble"><strong>MoodCraft:</strong> {{ msg.content }}</div>
+                    </div>
+                </div>
+                {% endif %}
+            {% endfor %}
+        {% else %}
+        <div class="message bot">
+            <div class="d-flex align-items-start">
+                <span class="chat-icon me-2">🤖</span>
+                <div class="bubble bot-bubble"><strong>MoodCraft:</strong> 👋 Hello! How are you feeling today?</div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+
+    <!-- Chat Input Group -->
+    <form id="chatForm" class="input-group mt-3">
+        <div class="input-group rounded-pill shadow-sm" style="overflow: hidden; background: white;">
+            <input type="text" name="message" id="messageInput" class="form-control border-0" placeholder="How can I help you today?" required autocomplete="off" style="border-radius: 0; padding: 15px;">
+            <button type="submit" class="btn" style="background: #4CAF50; color: white; border-radius: 0; padding: 0 20px;">Send</button>
+        </div>
+    </form>
+
+    <!-- Feature Buttons -->
+    <div class="row mt-4">
+        <div class="col-md-6 mb-3">
+            <button id="affirmationBtn" class="btn btn-primary w-100">
+                <i class="fas fa-heart me-2"></i> Get a Positive Affirmation
+            </button>
+        </div>
+        <div class="col-md-6 mb-3">
+            <button id="meditationBtn" class="btn btn-info w-100">
+                <i class="fas fa-om me-2"></i> Get a Guided Meditation
+            </button>
+        </div>
+    </div>
+
+    <!-- Clear History Button -->
+    <div class="row mt-2">
+        <div class="col-12 text-center">
+            <button id="clearHistoryBtn" class="btn btn-outline-danger">
+                <i class="fas fa-trash me-2"></i> Clear Chat History
+            </button>
+        </div>
+    </div>
+
+    <!-- Typing Indicator -->
+    <div id="typingIndicator" style="display:none; font-style: italic; margin-top: 10px;">🤖 MoodCraft is thinking<span id="dots"></span></div>
+</div>
+
+<!-- AOS Animation -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>AOS.init();</script>
+
+<!-- Chatbot Script -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const chatForm = document.getElementById('chatForm');
+    const chatWindow = document.getElementById('chatWindow');
+    const messageInput = document.getElementById('messageInput');
+    const typingIndicator = document.getElementById('typingIndicator');
+    const dots = document.getElementById('dots');
+    const affirmationBtn = document.getElementById('affirmationBtn');
+    const meditationBtn = document.getElementById('meditationBtn');
+    const clearHistoryBtn = document.getElementById('clearHistoryBtn');
+
+    // Scroll to bottom of chat window on load
+    chatWindow.scrollTop = chatWindow.scrollHeight;
+
+    // Function to sanitize user input
+    function sanitizeInput(input) {
+        const div = document.createElement('div');
+        div.textContent = input;
+        return div.innerHTML;
+    }
+
+    // Function to add a message to the chat window
+    function addMessage(text, sender) {
+        const messageBubble = document.createElement('div');
+        messageBubble.classList.add('message', sender);
+
+        if (sender === 'bot') {
+            messageBubble.innerHTML = `
+                <div class="d-flex align-items-start">
+                    <span class="chat-icon me-2">🤖</span>
+                    <div class="bubble bot-bubble">${text}</div>
+                </div>`;
+        } else if (sender === 'user') {
+            messageBubble.innerHTML = `
+                <div class="d-flex justify-content-end align-items-start">
+                    <div class="bubble user-bubble">${text}</div>
+                    <span class="chat-icon ms-2">👤</span>
+                </div>`;
+        }
+
+        chatWindow.appendChild(messageBubble);
+        chatWindow.scrollTop = chatWindow.scrollHeight;
+    }
+
+    // Function to display typing indicator
+    function showTypingIndicator() {
+        typingIndicator.style.display = 'block';
+        let dotCount = 0;
+        return setInterval(() => {
+            dots.textContent = '.'.repeat(dotCount % 4);
+            dotCount++;
+        }, 400);
+    }
+
+    // Function to hide typing indicator
+    function hideTypingIndicator(interval) {
+        clearInterval(interval);
+        typingIndicator.style.display = 'none';
+    }
+
+    // Handle regular chat form submission
+    chatForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const message = messageInput.value.trim();
+        if (!message) return;
+
+        // Add user message to chat
+        addMessage(`<strong>You:</strong> ${sanitizeInput(message)}`, 'user');
+        
+        // Clear input
+        messageInput.value = '';
+        
+        // Show typing indicator
+        const dotInterval = showTypingIndicator();
+
+        try {
+            const response = await fetch('/chatbot', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    message: message,
+                    action: 'chat'
+                })
+            });
+
+            if (!response.ok) {
+                throw new Error('Server error');
+            }
+
+            const data = await response.json();
+            
+            // Hide typing indicator
+            hideTypingIndicator(dotInterval);
+
+            if (data.success) {
+                addMessage(`<strong>MoodCraft:</strong> ${data.message}`, 'bot');
+            } else {
+                addMessage(`<strong>MoodCraft:</strong> ❌ ${data.message || 'An error occurred'}`, 'bot');
+            }
+        } catch (error) {
+            hideTypingIndicator(dotInterval);
+            addMessage(`<strong>MoodCraft:</strong> ❌ An error occurred: ${error.message}`, 'bot');
+        }
+    });
+
+    // Handle affirmation button click
+    affirmationBtn.addEventListener('click', async () => {
+        // Show typing indicator
+        const dotInterval = showTypingIndicator();
+
+        try {
+            const response = await fetch('/chatbot', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    action: 'affirmation'
+                })
+            });
+
+            if (!response.ok) {
+                throw new Error('Server error');
+            }
+
+            const data = await response.json();
+            
+            // Hide typing indicator
+            hideTypingIndicator(dotInterval);
+
+            if (data.success) {
+                addMessage(`<strong>MoodCraft - Affirmation:</strong> 💫 ${data.affirmation}`, 'bot');
+            } else {
+                addMessage(`<strong>MoodCraft:</strong> ❌ Unable to generate affirmation`, 'bot');
+            }
+        } catch (error) {
+            hideTypingIndicator(dotInterval);
+            addMessage(`<strong>MoodCraft:</strong> ❌ An error occurred: ${error.message}`, 'bot');
+        }
+    });
+
+    // Handle meditation button click
+    meditationBtn.addEventListener('click', async () => {
+        // Show typing indicator
+        const dotInterval = showTypingIndicator();
+
+        try {
+            const response = await fetch('/chatbot', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    action: 'meditation'
+                })
+            });
+
+            if (!response.ok) {
+                throw new Error('Server error');
+            }
+
+            const data = await response.json();
+            
+            // Hide typing indicator
+            hideTypingIndicator(dotInterval);
+
+            if (data.success) {
+                addMessage(`<strong>MoodCraft - Guided Meditation:</strong> 🧘 ${data.meditation}`, 'bot');
+            } else {
+                addMessage(`<strong>MoodCraft:</strong> ❌ Unable to generate meditation guide`, 'bot');
+            }
+        } catch (error) {
+            hideTypingIndicator(dotInterval);
+            addMessage(`<strong>MoodCraft:</strong> ❌ An error occurred: ${error.message}`, 'bot');
+        }
+    });
+
+    // Handle clear history button click
+    clearHistoryBtn.addEventListener('click', async () => {
+        if (confirm('Are you sure you want to clear your chat history?')) {
+            try {
+                const response = await fetch('/clear_chat', {
+                    method: 'POST'
+                });
+
+                if (!response.ok) {
+                    throw new Error('Server error');
+                }
+
+                const data = await response.json();
+                
+                if (data.status === 'success') {
+                    // Clear chat window
+                    chatWindow.innerHTML = '';
+                    // Add welcome message
+                    addMessage(`<strong>MoodCraft:</strong> 👋 Chat history cleared. How can I help you today?`, 'bot');
+                } else {
+                    addMessage(`<strong>MoodCraft:</strong> ❌ ${data.message || 'Failed to clear chat history'}`, 'bot');
+                }
+            } catch (error) {
+                addMessage(`<strong>MoodCraft:</strong> ❌ An error occurred: ${error.message}`, 'bot');
+            }
+        }
+    });
+});
+</script>
+
+<!-- Add custom CSS for chat bubbles -->
+<style>
+.message {
+    margin-bottom: 15px;
+}
+.bubble {
+    padding: 12px 15px;
+    border-radius: 18px;
+    max-width: 80%;
+    word-wrap: break-word;
+}
+.user-bubble {
+    background-color: #E3F2FD;
+    color: #0D47A1;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+.bot-bubble {
+    background-color: #E8F5E9;
+    color: #1B5E20;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+.chat-icon {
+    font-size: 1.5rem;
+}
+</style>
+
+{% endblock %}

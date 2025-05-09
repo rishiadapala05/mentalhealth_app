@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container d-flex justify-content-center align-items-center" style="height: 90vh;">
+    <div class="card p-4 shadow" style="width: 320px; border-radius: 20px; background: linear-gradient(to bottom right, #ffecd2, #fcb69f);">
+        <h3 class="text-center mb-4" style="font-weight:700;">🛡️ Admin Login</h3>
+
+        <form method="post">
+            <div class="form-group mb-3">
+                <input type="password" name="password" class="form-control rounded-pill text-center" placeholder="Enter Admin Password" required>
+            </div>
+            <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-danger rounded-pill">Login as Admin</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

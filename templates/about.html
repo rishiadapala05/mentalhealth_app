@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<!-- About Us Page -->
+<div class="container text-center mt-5" data-aos="fade-up">
+
+    <!-- Logo -->
+    <img src="{{ url_for('static', filename='images/company_logo.png') }}" alt="Company Logo" width="150" class="mb-4">
+
+    <!-- Title -->
+    <h2 class="mb-3" style="font-weight: 700;">About MoodCraft</h2>
+
+    <!-- Short Intro -->
+    <p class="mb-5" style="font-size: 1.1rem;">
+        At <strong>MoodCraft</strong>, we believe mental wellness is as important as physical health.
+        Our mission is to empower every individual to live a more mindful, emotionally balanced life through 
+        AI-powered emotional support and mindfulness practices. 🌿
+    </p>
+
+    <!-- Vision & Values -->
+    <div class="row mb-5">
+        <div class="col-md-6" data-aos="fade-right">
+            <h4>🌟 Our Vision</h4>
+            <p>To create a world where emotional support is accessible to everyone, anytime, anywhere.</p>
+        </div>
+        <div class="col-md-6" data-aos="fade-left">
+            <h4>💖 Our Core Values</h4>
+            <ul class="list-unstyled" style="font-size: 1.05rem;">
+                <li>✔️ Empathy-Driven Innovation</li>
+                <li>✔️ Mental Health First</li>
+                <li>✔️ Trust, Respect & Confidentiality</li>
+                <li>✔️ Spreading Positivity & Growth</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Contact Information -->
+    <div class="mt-5" data-aos="fade-up" data-aos-delay="300">
+        <h3>📞 Contact Us</h3>
+        <p style="font-size: 1.1rem;">
+            We'd love to hear from you! Feel free to reach out:
+        </p>
+
+        <p><strong>Email:</strong> support@nrr.com</p>
+        <p><strong>Phone:</strong> +91 7670946426</p>
+        <p><strong>Address:</strong> Bengaluru, Karnataka, India</p>
+
+        <div class="mt-4">
+            <a href="mailto:support@nrr.com" class="btn btn-success">Send Us an Email</a>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

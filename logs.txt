@@ -1,0 +1,153 @@
+[2025-04-30 09:28:29] Visited Home Page - User: revanth
+[2025-04-30 09:51:03] Visited Home Page - User: revanth
+[2025-05-04 18:12:08] New account created: rohit_nunnagupalla
+[2025-05-04 18:12:08] Visited Home Page - User: rohit_nunnagupalla
+[2025-05-04 18:12:16] User rohit_nunnagupalla visited About Page
+==== SESSION END: rohit_nunnagupalla ====
+[2025-05-04 18:12:24] Failed login attempt: rohit
+
+==== SESSION START: rohit_nunnagupalla ====
+[2025-05-04 18:12:39] Visited Home Page - User: rohit_nunnagupalla
+[2025-05-04 18:12:44] User rohit_nunnagupalla started IQ Test
+[2025-05-04 18:12:47] Visited Home Page - User: rohit_nunnagupalla
+[2025-05-04 18:12:49] User rohit_nunnagupalla visited Mindfulness Music
+[2025-05-04 18:12:51] Visited Home Page - User: rohit_nunnagupalla
+[2025-05-04 18:13:01] Visited Home Page - User: rohit_nunnagupalla
+[2025-05-04 18:13:03] User rohit_nunnagupalla visited About Page
+[2025-05-04 18:13:07] User rohit_nunnagupalla visited Reviews Page
+[2025-05-04 18:13:12] User rohit_nunnagupalla submitted a Review: 3⭐ - good
+[2025-05-04 18:13:12] User rohit_nunnagupalla visited Reviews Page
+[2025-05-04 18:39:59] Visited Home Page - User: rohit_nunnagupalla
+[2025-05-04 18:40:35] Visited Home Page - User: rohit_nunnagupalla
+[2025-05-04 18:40:47] Chatbot interaction - User: rohit_nunnagupalla - Message: 'hi' - Detected emotion: neutral
+[2025-05-04 18:46:13] Chatbot interaction - User: rohit_nunnagupalla - Message: 'hi' - Detected emotion: neutral
+[2025-05-04 18:46:18] User rohit_nunnagupalla visited Reviews Page
+[2025-05-04 18:46:27] User rohit_nunnagupalla visited Reviews Page
+[2025-05-04 18:46:29] Visited Home Page - User: rohit_nunnagupalla
+
+==== SESSION START: rohit_nunnagupalla ====
+[2025-05-04 19:01:24] Visited Home Page - User: rohit_nunnagupalla
+[2025-05-04 19:04:28] Visited Home Page - User: rohit_nunnagupalla
+[2025-05-04 19:04:30] Visited Home Page - User: rohit_nunnagupalla
+[2025-05-04 19:10:54] Visited Home Page - User: rohit_nunnagupalla
+[2025-05-04 19:11:37] Visited Home Page - User: rohit_nunnagupalla
+
+==== SESSION START: rohit_nunnagupalla ====
+[2025-05-04 19:15:35] Visited Home Page - User: rohit_nunnagupalla
+[2025-05-04 19:21:48] Visited Home Page - User: rohit_nunnagupalla
+[2025-05-04 19:21:52] Visited Home Page - User: rohit_nunnagupalla
+[2025-05-04 19:31:15] Visited Home Page - User: rohit_nunnagupalla
+[2025-05-04 19:35:05] Visited Home Page - User: rohit_nunnagupalla
+
+==== SESSION START: rohit_nunnagupalla ====
+[2025-05-04 19:38:24] Visited Home Page - User: rohit_nunnagupalla
+[2025-05-04 19:42:48] Visited Home Page - User: rohit_nunnagupalla
+[2025-05-04 19:44:14] Visited Home Page - User: rohit_nunnagupalla
+[2025-05-04 19:46:14] Visited Home Page - User: rohit_nunnagupalla
+[2025-05-04 19:46:15] Visited Home Page - User: rohit_nunnagupalla
+
+==== SESSION START: rohit_nunnagupalla ====
+[2025-05-04 19:51:37] Visited Home Page - User: rohit_nunnagupalla
+
+==== SESSION START: rohit_nunnagupalla ====
+[2025-05-04 19:54:32] Visited Home Page - User: rohit_nunnagupalla
+[2025-05-04 19:56:56] Visited Home Page - User: rohit_nunnagupalla
+[2025-05-04 19:57:01] Chatbot interaction - User: rohit_nunnagupalla - Message: 'sad' - Detected emotion: sad
+[2025-05-04 19:57:10] Chatbot interaction - User: rohit_nunnagupalla - Message: 'happy' - Detected emotion: happy
+[2025-05-04 19:58:02] Chatbot interaction - User: rohit_nunnagupalla - Message: 'hi' - Detected emotion: neutral
+[2025-05-04 20:00:22] Chatbot interaction - User: rohit_nunnagupalla - Message: 'hi' - Detected emotion: greeting
+[2025-05-04 20:04:31] Chatbot interaction - User: rohit_nunnagupalla - Message: 'hi' - Detected emotion: greeting
+[2025-05-04 20:04:37] Chatbot interaction - User: rohit_nunnagupalla - Message: 'sad' - Detected emotion: sad
+[2025-05-04 20:04:40] Chatbot interaction - User: rohit_nunnagupalla - Message: 'happy' - Detected emotion: happy
+[2025-05-04 20:04:58] Chatbot interaction - User: rohit_nunnagupalla - Message: '"I'm feeling a bit sad and lonely"' - Detected emotion: sad
+[2025-05-04 20:05:12] Chatbot interaction - User: rohit_nunnagupalla - Message: 'iam unhappy today i didnt wrote exam well' - Detected emotion: happy
+[2025-05-04 20:05:23] Chatbot interaction - User: rohit_nunnagupalla - Message: 'unhappy' - Detected emotion: sad
+
+==== SESSION START: rohit_nunnagupalla ====
+[2025-05-04 21:15:46] Visited Home Page - User: rohit_nunnagupalla
+[2025-05-04 21:15:51] Chatbot interaction - User: rohit_nunnagupalla - Message: 'hi' - Detected emotion: greeting
+[2025-05-04 21:16:56] Chatbot interaction - User: rohit_nunnagupalla - Message: 'hi' - Detected emotion: greeting
+[2025-05-04 21:17:13] Chatbot interaction - User: rohit_nunnagupalla - Message: 'hi' - Detected emotion: greeting
+[2025-05-04 21:19:39] Chatbot interaction - User: rohit_nunnagupalla - Message: 'hi' - Detected emotion: greeting
+
+==== SESSION START: rohit_nunnagupalla ====
+[2025-05-04 21:21:00] Visited Home Page - User: rohit_nunnagupalla
+[2025-05-04 21:21:07] Chatbot interaction - User: rohit_nunnagupalla - Message: 'hi' - Detected emotion: greeting
+[2025-05-04 21:21:12] Chatbot interaction - User: rohit_nunnagupalla - Message: 'sad' - Detected emotion: sad
+[2025-05-04 21:31:27] Chatbot interaction - User: rohit_nunnagupalla - Message: 'hi' - Detected emotion: greeting
+[2025-05-04 21:34:33] Chatbot interaction - User: rohit_nunnagupalla - Message: 'hi' - Detected emotion: greeting
+[2025-05-04 21:34:40] Chatbot interaction - User: rohit_nunnagupalla - Message: 'hi' - Detected emotion: greeting
+
+==== SESSION START: rohit_nunnagupalla ====
+[2025-05-04 21:36:14] Visited Home Page - User: rohit_nunnagupalla
+[2025-05-04 21:36:20] Chatbot interaction - User: rohit_nunnagupalla - Message: 'ghi' - Detected emotion: neutral
+[2025-05-04 21:36:20] Chatbot interaction - User: rohit_nunnagupalla - Message: 'ghi]' - Detected emotion: neutral
+[2025-05-04 21:38:48] Chatbot interaction - User: rohit_nunnagupalla - Message: 'hi'' - Detected emotion: neutral
+[2025-05-04 21:40:16] Chatbot interaction - User: rohit_nunnagupalla - Message: 'hi' - Detected emotion: greeting
+[2025-05-04 21:40:21] Chatbot interaction - User: rohit_nunnagupalla - Message: 'sad' - Detected emotion: sad
+[2025-05-04 21:40:26] Chatbot interaction - User: rohit_nunnagupalla - Message: 'hi' - Detected emotion: greeting
+[2025-05-04 21:43:38] User rohit_nunnagupalla answered question: 'Would you like to share something?' for emotion: neutral
+[2025-05-04 21:44:08] User rohit_nunnagupalla answered question: 'Would you like to share something?' for emotion: neutral
+[2025-05-04 21:44:46] Chatbot interaction - User: rohit_nunnagupalla - Message: 'hi' - Detected emotion: greeting
+[2025-05-04 21:44:48] Chatbot interaction - User: rohit_nunnagupalla - Message: 'sad' - Detected emotion: sad
+[2025-05-04 21:45:23] Chatbot interaction - User: rohit_nunnagupalla - Message: 'feeling unwell today' - Detected emotion: neutral
+==== SESSION END: rohit_nunnagupalla ====
+
+==== SESSION START: rohit_nunnagupalla ====
+[2025-05-08 19:32:09] Visited Home Page - User: rohit_nunnagupalla
+[2025-05-08 19:32:20] Chatbot interaction - User: rohit_nunnagupalla - Message: 'hi'
+[2025-05-08 19:32:31] User rohit_nunnagupalla requested an affirmation
+[2025-05-08 19:32:34] Chatbot interaction - User: rohit_nunnagupalla - Message: 'iam unhappy'
+[2025-05-08 19:32:37] User rohit_nunnagupalla requested an affirmation
+[2025-05-08 19:32:44] Chatbot interaction - User: rohit_nunnagupalla - Message: 'iam unhappy'
+[2025-05-08 19:32:50] User rohit_nunnagupalla requested an affirmation
+[2025-05-08 19:32:55] User rohit_nunnagupalla cleared their chat history
+[2025-05-08 19:32:59] Visited Home Page - User: rohit_nunnagupalla
+[2025-05-08 19:33:03] User rohit_nunnagupalla visited Mindfulness Music
+[2025-05-08 19:33:08] User rohit_nunnagupalla started IQ Test
+[2025-05-08 19:33:13] User rohit_nunnagupalla visited Reviews Page
+[2025-05-08 19:33:15] User rohit_nunnagupalla visited About Page
+[2025-05-08 19:33:17] Visited Home Page - User: rohit_nunnagupalla
+[2025-05-08 19:34:42] Chatbot interaction - User: rohit_nunnagupalla - Message: 'iam unhappy'
+[2025-05-08 20:05:31] User rohit_nunnagupalla cleared their chat history
+[2025-05-09 09:37:04] Failed login attempt: rishirevanth
+
+==== SESSION START: revanth ====
+[2025-05-09 09:37:27] Visited Home Page - User: revanth
+[2025-05-09 10:02:30] Visited Home Page - User: revanth
+[2025-05-09 10:02:41] Chatbot interaction - User: revanth - Message: 'hi'
+[2025-05-09 10:04:18] User revanth cleared their chat history
+[2025-05-09 10:04:24] Chatbot interaction - User: revanth - Message: 'hi'
+[2025-05-09 10:05:58] Chatbot interaction - User: revanth - Message: 'hi'
+[2025-05-09 10:11:02] User revanth cleared their chat history
+[2025-05-09 10:11:40] Chatbot interaction - User: revanth - Message: 'hi'
+[2025-05-09 10:13:15] Chatbot interaction - User: revanth - Message: 'iam feeling unwell today'
+[2025-05-09 10:17:11] Chatbot interaction - User: revanth - Message: 'yes some cold'
+[2025-05-09 10:19:41] User revanth requested an affirmation
+[2025-05-09 10:42:41] User revanth requested a meditation guide
+[2025-05-09 10:51:48] User revanth visited Reviews Page
+[2025-05-09 10:51:53] User revanth visited About Page
+[2025-05-09 10:51:55] Visited Home Page - User: revanth
+[2025-05-09 10:52:05] User revanth started IQ Test
+[2025-05-09 10:52:08] User revanth started IQ Test
+[2025-05-09 10:52:10] User revanth started IQ Test
+[2025-05-09 10:52:14] Visited Home Page - User: revanth
+[2025-05-09 10:58:23] User revanth started IQ Test
+[2025-05-09 10:59:58] Visited Home Page - User: revanth
+[2025-05-09 11:00:00] Visited Home Page - User: revanth
+==== SESSION END: revanth ====
+
+==== SESSION START: revanth ====
+[2025-05-09 11:00:18] Visited Home Page - User: revanth
+[2025-05-09 11:00:38] Visited Home Page - User: revanth
+[2025-05-09 11:00:40] User revanth started IQ Test
+[2025-05-09 11:00:42] User revanth started IQ Test
+[2025-05-09 11:00:43] User revanth started IQ Test
+[2025-05-09 11:00:44] User revanth started IQ Test
+[2025-05-09 11:00:46] Visited Home Page - User: revanth
+[2025-05-09 11:00:50] User revanth visited Mindfulness Music
+[2025-05-09 11:01:01] Visited Home Page - User: revanth
+
+==== SESSION START: revanth ====
+[2025-05-09 12:14:11] Visited Home Page - User: revanth
+==== SESSION END: revanth ====

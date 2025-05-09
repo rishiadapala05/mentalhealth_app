@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container text-center" data-aos="fade-up">
+
+    <!-- Congratulations Animation -->
+    <h1 class="mb-4" id="congrats">🎉 Congratulations! 🎉</h1>
+
+    <!-- Score Display -->
+    <h2>Your Score: {{ score }}/100</h2>
+
+    <!-- Dynamic Message Based on Score -->
+    {% if score >= 90 %}
+        <h3 class="text-success mt-3">🥇 Excellent! You're a Genius!</h3>
+    {% elif score >= 60 %}
+        <h3 class="text-primary mt-3">🥈 Good Job! Keep it up!</h3>
+    {% else %}
+        <h3 class="text-danger mt-3">🥉 Needs Improvement! Practice more!</h3>
+    {% endif %}
+
+    <a href="/" class="btn btn-success mt-5">Back to Home</a>
+</div>
+
+<!-- Confetti JS -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+<script>
+    // Trigger confetti when page loads
+    window.onload = () => {
+        confetti({
+            particleCount: 200,
+            spread: 70,
+            origin: { y: 0.6 }
+        });
+    };
+</script>
+
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">🛡️ Admin Logs Panel</h2>
+
+    <div class="text-center mb-4">
+        <a href="/admin_logout" class="btn btn-outline-danger rounded-pill">Logout Admin</a>
+    </div>
+
+    <div class="card shadow p-4" style="background: #f0f4f8; border-radius: 20px;">
+        <h5>📜 Logs:</h5>
+        <pre style="height: 400px; overflow-y: scroll; background: #fff; padding: 15px; border-radius: 10px;">{{ logs }}</pre>
+
+        <div class="text-center mt-3">
+            <a href="{{ url_for('download_logs') }}" class="btn btn-success rounded-pill">Download Logs 📄</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
